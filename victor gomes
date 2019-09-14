@@ -1,0 +1,89 @@
+enable
+configure terminal
+hostname S1
+vlan 10
+name TESTES
+vlan 20
+name TELEMARKETING
+vlan 30
+name CONSULTORES
+vlan 40
+name RH
+interface range f0/1-9
+switchport mode access 
+switchport access vlan 10
+interface range f0/10-17
+switchport mode access 
+switchport access vlan 20
+interface range f0/18, f0/22, f0/24
+switchport mode access 
+switchport access vlan 30
+interface range f0/19, f0/20, f0/21, f0/23
+switchport mode access 
+switchport access vlan 40
+
+enable
+configure terminal
+hostname S2
+vlan 50
+name ANALISTAS
+vlan 60
+name OPERACAO
+vlan 70
+name TI
+vlan 80
+name ADMINISTRATIVO
+interface range f0/1-20
+switchport mode access 
+switchport access vlan 50
+interface range f0/24
+switchport mode access 
+switchport access vlan 60
+interface range f0/21, f0/23
+switchport mode access 
+switchport access vlan 70
+interface range f0/22
+switchport mode access 
+switchport access vlan 80
+
+enable
+configure terminal
+hostname S3
+vlan 80
+name FINANCAS
+vlan 60
+name OPERACOES
+vlan 100
+name LIVRE
+interface range f0/1-5
+switchport mode access 
+switchport access vlan 80
+interface range f0/6-9
+switchport mode access 
+switchport access vlan 60
+interface range f0/10-19
+switchport mode trunk
+switchport trunk native vlan 88
+interface range f0/20-24
+switchport mode access 
+switchport access vlan 100
+
+enable
+configure terminal
+hostname S4
+vlan 200
+name VOZ
+vlan 90
+name TACACS
+interface range f0/1-9
+switchport mode trunk
+switchport trunk native vlan 88
+interface range f0/10-12
+switchport mode access 
+switchport access vlan 200
+interface range f0/13-14
+switchport mode access 
+switchport access vlan 90
+interface range f0/15-24
+switchport mode trunk
+switchport trunk native vlan 88
